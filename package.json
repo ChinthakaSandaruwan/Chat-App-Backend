@@ -1,23 +1,14 @@
 {
-  "name": "chat-app-backend",
+  "name": "chatapp",
   "version": "1.0.0",
-  "description": "Chat App Backend",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChinthakaSandaruwan/Chat-App-Backend.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/ChinthakaSandaruwan/Chat-App-Backend/issues"
-  },
-  "homepage": "https://github.com/ChinthakaSandaruwan/Chat-App-Backend#readme",
+  "description": "",
   "dependencies": {
     "express": "^5.2.1",
     "mysql2": "^3.22.4"
