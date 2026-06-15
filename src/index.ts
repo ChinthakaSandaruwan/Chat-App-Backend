@@ -1,6 +1,9 @@
 import express from "express";
 import user from "./routes/user";
 import chat from "./routes/chat";
+import chatHistory from "./routes/chat-history";
+import {startWebSocket} from "./webSocket";
+import http from "http";
 const app = express();
 
 app.use(express.json());
@@ -11,8 +14,13 @@ app.get("/",(req,res)=>{
 
 app.use("/user",user);
 app.use("/chat",chat);
+app.use("/chat-history",chatHistory);
 
-app.listen(3000,()=>{
+const server = http.createServer(app);
+
+startWebSocket(server)
+
+server.listen(3000,()=>{
     console.log("API Started...");
     console.log("API Url : http://localhost:3000");
 });
