@@ -3,6 +3,7 @@ import { WebSocketServer } from "ws";
 import db from "./db";
 
 export function startWebSocket(server: Server) {
+
   const userConnections = new Map();
 
   const wsServer = new WebSocketServer({ server });
@@ -36,7 +37,7 @@ export function startWebSocket(server: Server) {
           );
 
         } catch (err) {
-            console.log(err);
+          console.log(err);
         }
 
         //send to receiver
