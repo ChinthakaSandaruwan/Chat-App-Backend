@@ -18,7 +18,9 @@ export function startWebSocket(server: Server) {
         //save to map
 
         userConnections.set(msgData.data, ws);
+
         console.log("Connection saved!");
+
       } else if (msgData.type === "chat") {
         //send to reciver
 
@@ -37,11 +39,12 @@ export function startWebSocket(server: Server) {
           );
 
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
 
         //send to receiver
         if (receiverWs) {
+
           const msgData = {
             message: data,
             sent_at: new Date().toISOString(),
@@ -53,5 +56,17 @@ export function startWebSocket(server: Server) {
         }
       }
     });
+
+    ws.on("close", ()=>{
+
+      userConnections.forEach( (value,key)=>{
+
+        if(value === ws) userConnections.delete(key);
+
+      } );
+
+    });
+
+
   });
 }
